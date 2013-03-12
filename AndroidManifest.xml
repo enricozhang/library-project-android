@@ -22,6 +22,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <service android:name=".services.SingleService">
+            <intent-filter>
+                <action android:name="com.meimob.app.services.SingleService"/>
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>
