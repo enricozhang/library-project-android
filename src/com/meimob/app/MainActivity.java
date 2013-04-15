@@ -3,6 +3,7 @@ package com.meimob.app;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.HtcUnionContact.ContactUtils;
 import android.view.Menu;
 
 import com.meimob.app.services.SingleService;
@@ -16,6 +17,9 @@ public class MainActivity extends Activity {
 		
 		Intent intent = new Intent(SingleService.AUTHORITY);
 		startService(intent);
+		
+		
+	//	startActivity(new Intent(this, ContactUtils.class));
 	}
 
 	@Override
