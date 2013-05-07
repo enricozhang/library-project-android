@@ -1,13 +1,10 @@
 package com.meimob.app;
 
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Environment;
-import android.provider.HtcUnionContact.ContactUtils;
 import android.view.Menu;
 
 import com.meimob.app.services.SingleService;
