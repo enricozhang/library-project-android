@@ -1,8 +1,12 @@
 package com.meimob.app;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.HtcUnionContact.ContactUtils;
 import android.view.Menu;
 
@@ -17,6 +21,18 @@ public class MainActivity extends Activity {
 		
 		Intent intent = new Intent(SingleService.AUTHORITY);
 		startService(intent);
+	
+		try {
+			boolean isEmulated = false;
+			Class<?> environment = Class.forName("android.os.Environment");
+			Method[] methods = environment.getMethods();
+			Method method = environment.getMethod("isExternalStorageEmulated", null);
+			Object obj = method.invoke(null, null);
+			
+		}  catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		
 	//	startActivity(new Intent(this, ContactUtils.class));
