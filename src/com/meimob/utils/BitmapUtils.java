@@ -5,6 +5,9 @@ import java.lang.ref.WeakReference;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.PixelFormat;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.widget.ImageView;
 
@@ -161,6 +164,32 @@ public class BitmapUtils {
 	}
 
 	return inSampleSize;
+    }
+
+    /**
+     * 该方法是将｛@link Drawable} 对象转换成｛@link Bitmap} 对象
+     * 
+     * @param drawable
+     * @return
+     */
+    public static Bitmap drawableToBitmap(Drawable drawable) {
+	if (drawable == null) {
+	    return null;
+	}
+	Bitmap bitmap = Bitmap
+		.createBitmap(
+			drawable.getIntrinsicWidth(),
+			drawable.getIntrinsicHeight(),
+			drawable.getOpacity() != PixelFormat.OPAQUE ? Bitmap.Config.ARGB_8888
+				: Bitmap.Config.RGB_565);
+	if (bitmap == null) {
+	    return null;
+	}
+	Canvas canvas = new Canvas(bitmap);
+	drawable.setBounds(0, 0, drawable.getIntrinsicWidth(),
+		drawable.getIntrinsicHeight());
+	drawable.draw(canvas);
+	return bitmap;
     }
 
 }

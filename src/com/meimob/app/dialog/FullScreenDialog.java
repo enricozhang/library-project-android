@@ -1,5 +1,7 @@
 package com.meimob.app.dialog;
 
+import com.meimob.app.R;
+
 import android.app.Activity;
 import android.app.Dialog;
 import android.graphics.Rect;
@@ -16,7 +18,7 @@ public class FullScreenDialog extends Activity {
 	super.onCreate(savedInstanceState);
 	
 	Dialog dialog = new Dialog(this, R.style.mydialog);  
-	dialog.setContentView(R.layout.layout);  
+	//dialog.setContentView(R.layout.layout);  
 	LayoutParams lay = dialog.getWindow().getAttributes();  
 	setParams(lay);  
 	dialog.show();  
