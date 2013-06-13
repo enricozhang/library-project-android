@@ -19,7 +19,7 @@ import android.net.Uri;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.example.libraryproject.R;
+import com.meimob.app.R;
 
 /**
  * @author Enrico
