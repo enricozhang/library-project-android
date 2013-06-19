@@ -10,9 +10,11 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.CompressFormat;
 import android.graphics.drawable.Drawable;
+import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.util.Log;
 
 public class MediaUtils {
     
@@ -36,7 +38,7 @@ public class MediaUtils {
     }
     
     /**
-     * The drawable objects into bitmap and then saved to SDcard
+     * The drawable objects into bitmap and then saved to SDcard after refresh gallery
      * @param context
      * @param drawable
      * @param picName
@@ -72,6 +74,16 @@ public class MediaUtils {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
+	
+	// notification gallery to refresh
+	MediaScannerConnection.scanFile(context,
+	            new String[] { file.toString() }, null,
+	            new MediaScannerConnection.OnScanCompletedListener() {
+	        public void onScanCompleted(String path, Uri uri) {
+	            Log.i("ExternalStorage", "Scanned " + path + ":");
+	            Log.i("ExternalStorage", "-> uri=" + uri);
+	        }
+	    });
 	return null;
     }
 
