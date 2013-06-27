@@ -24,11 +24,6 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.isports.util.image.ImageFetcher;
-import com.isports.util.image.ImageWorker;
-import com.isports.util.image.Utils;
-import com.sony.mart.R;
-
 /**
  * This fragment will populate the children of the ViewPager from {@link ImageDetailActivity}.
  */
@@ -36,7 +31,7 @@ public class ImageDetailFragment extends Fragment {
     private static final String IMAGE_DATA_EXTRA = "extra_image_data";
     private String mImageUrl;
     private ImageView mImageView;
-    private ImageFetcher mImageFetcher;
+  //  private ImageFetcher mImageFetcher;
 
     /**
      * Factory method to generate a new instance of the fragment given an image number.
@@ -73,9 +68,10 @@ public class ImageDetailFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         // Inflate and locate the main ImageView
-        final View v = inflater.inflate(R.layout.image_detail_fragment, container, false);
-        mImageView = (ImageView) v.findViewById(R.id.imageView);
-        return v;
+    //    final View v = inflater.inflate(R.layout.image_detail_fragment, container, false);
+    //    mImageView = (ImageView) v.findViewById(R.id.imageView);
+     //   return v;
+	return null;
     }
 
     @Override
@@ -84,10 +80,10 @@ public class ImageDetailFragment extends Fragment {
 
         // Use the parent activity to load the image asynchronously into the ImageView (so a single
         // cache can be used over all pages in the ViewPager
-        if (ProductDetailActivity.class.isInstance(getActivity())) {
+      //  if (ProductDetailActivity.class.isInstance(getActivity())) {
          //   mImageFetcher = ((ProductDetailActivity) getActivity()).getImageFetcher();
-            mImageFetcher.loadImage(mImageUrl, mImageView);
-        }
+     //       mImageFetcher.loadImage(mImageUrl, mImageView);
+     //   }
 
         // Pass clicks on the ImageView to the parent activity to handle
         if (OnClickListener.class.isInstance(getActivity())) {
@@ -100,7 +96,7 @@ public class ImageDetailFragment extends Fragment {
         super.onDestroy();
         if (mImageView != null) {
             // Cancel any pending image work
-            ImageWorker.cancelWork(mImageView);
+         //   ImageWorker.cancelWork(mImageView);
             mImageView.setImageDrawable(null);
         }
     }

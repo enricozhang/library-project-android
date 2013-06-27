@@ -1,4 +1,4 @@
-package com.meimob.utils;
+package com.meimob.util;
 
 import android.content.Context;
 import android.telephony.TelephonyManager;

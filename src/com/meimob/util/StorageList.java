@@ -1,4 +1,4 @@
-package com.meimob.utils;
+package com.meimob.util;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

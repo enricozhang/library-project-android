@@ -1,4 +1,4 @@
-package com.meimob.utils;
+package com.meimob.util;
 
 import java.io.File;
 import java.io.FileFilter;

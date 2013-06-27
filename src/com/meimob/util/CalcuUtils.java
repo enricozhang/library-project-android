@@ -1,4 +1,4 @@
-package com.meimob.utils;
+package com.meimob.util;
 
 public class CalcuUtils {
 	private void calculateMethodRuntime(){
